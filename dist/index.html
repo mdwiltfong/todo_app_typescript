@@ -16,7 +16,13 @@
 </head>
 
 <body>
-    <div id="root" class="container"></div>
+    <div id="root" class="container d-flex flex-column">
+        <label for="title">Task Title</label>
+        <input type="text" id="title" name="title">
+        <label for="description">Task Description</label>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <input type="date" name="todo-date" id="date">
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
