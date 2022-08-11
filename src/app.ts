@@ -1,21 +1,45 @@
+type Todo = {
+  title: string;
+  description: string;
+  date: string;
+};
 class ProjectInput {
-  root: HTMLDivElement;
+  inputTitle: HTMLInputElement;
+  taskDescription: HTMLTextAreaElement;
+  taskDate: HTMLInputElement;
+  todoForm: HTMLFormElement;
+  todoList: Todo[];
   constructor() {
-    /* 
-    We will need:
-    - A couple input fields: Task Title, Task Description, To-do date. All of which can be text fields. 
-    */
-
-    this.root = document.getElementById("root") as HTMLDivElement;
-
+    this.inputTitle = document.getElementById("title") as HTMLInputElement;
+    console.log(this.inputTitle);
+    this.taskDescription = document.getElementById(
+      "description"
+    ) as HTMLTextAreaElement;
+    this.taskDate = document.getElementById("date") as HTMLInputElement;
+    this.todoForm = document.getElementById("todo-form") as HTMLFormElement;
+    this.todoForm.addEventListener("submit", this.submitHandler);
+    this.todoList = [];
     this.attach();
+    this.submitHandler = this.submitHandler.bind(this);
+  }
+  private gatherInputs() {
+    const title = this.inputTitle.value;
+    const description = this.taskDescription.value;
+    const date = this.taskDate.value;
+    console.log("test");
+    return {
+      title,
+      description,
+      date,
+    };
   }
 
-  attach(): void {
-    const div = document.createElement("div");
-    div.setAttribute("id", "container");
-    this.root.appendChild(div);
-  }
+  submitHandler = (e: Event) => {
+    e.preventDefault();
+    console.log(this.gatherInputs());
+  };
+
+  attach(): void {}
 }
 
 new ProjectInput();
