@@ -11,7 +11,7 @@ class ProjectInput {
   todoList: Todo[];
   constructor() {
     this.inputTitle = document.getElementById("title") as HTMLInputElement;
-    console.log(this.inputTitle);
+
     this.taskDescription = document.getElementById(
       "description"
     ) as HTMLTextAreaElement;
@@ -26,17 +26,21 @@ class ProjectInput {
     const title = this.inputTitle.value;
     const description = this.taskDescription.value;
     const date = this.taskDate.value;
-    console.log("test");
     return {
       title,
       description,
       date,
     };
   }
-
-  submitHandler = (e: Event) => {
+  private render = () => {
+    this.todoList.forEach((todo) => {});
+  };
+  //TODO: make a formatTodo function to convert todo objects into HTML node
+  private formatTodo(todo: Todo) {}
+  private submitHandler = (e: Event) => {
     e.preventDefault();
-    console.log(this.gatherInputs());
+    const task = this.gatherInputs();
+    this.todoList.push(task);
   };
 
   attach(): void {}

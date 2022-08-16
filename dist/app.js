@@ -3,10 +3,11 @@ class ProjectInput {
     constructor() {
         this.submitHandler = (e) => {
             e.preventDefault();
-            console.log(this.gatherInputs());
+            const task = this.gatherInputs();
+            this.todoList.push(task);
+            console.log(this.todoList);
         };
         this.inputTitle = document.getElementById("title");
-        console.log(this.inputTitle);
         this.taskDescription = document.getElementById("description");
         this.taskDate = document.getElementById("date");
         this.todoForm = document.getElementById("todo-form");
@@ -19,7 +20,6 @@ class ProjectInput {
         const title = this.inputTitle.value;
         const description = this.taskDescription.value;
         const date = this.taskDate.value;
-        console.log("test");
         return {
             title,
             description,
