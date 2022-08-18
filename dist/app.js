@@ -5,7 +5,6 @@ class ProjectInput {
             e.preventDefault();
             const task = this.gatherInputs();
             this.todoList.push(task);
-            console.log(this.todoList);
         };
         this.inputTitle = document.getElementById("title");
         this.taskDescription = document.getElementById("description");

@@ -32,11 +32,11 @@ class ProjectInput {
       date,
     };
   }
-  private render = () => {
+  /*   private render = () => {
     this.todoList.forEach((todo) => {});
-  };
+  }; */
   //TODO: make a formatTodo function to convert todo objects into HTML node
-  private formatTodo(todo: Todo) {}
+  /*   private formatTodo(todo: Todo) {} */
   private submitHandler = (e: Event) => {
     e.preventDefault();
     const task = this.gatherInputs();
